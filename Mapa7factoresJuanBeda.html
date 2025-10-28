@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mapa Mental 7 Factores - CAN</title>
+<style>
+:root {
+  --bg:#F9F9F4;
+  --card:#ffffff;
+  --primary:#7BB661;
+  --secondary:#6B8EAE;
+  --highlight:#F2C94C;
+  --text:#333333;
+  --shadow: 0 6px 20px rgba(15,23,42,0.08);
+}
+body {
+  margin:0;
+  font-family:'Alef', sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+}
+.container {
+  position:relative;
+  width:800px;
+  max-width:95%;
+  height:700px;
+  background:var(--card);
+  border-radius:12px;
+  box-shadow:var(--shadow);
+}
+.center-node {
+  position:absolute;
+  top:50%; left:50%;
+  transform:translate(-50%, -50%);
+  width:200px; height:200px;
+  border-radius:50%;
+  background:linear-gradient(135deg, var(--primary), var(--secondary));
+  display:flex; flex-direction:column; justify-content:center; align-items:center;
+  text-align:center; color:#fff; font-size:18px; font-weight:bold;
+  padding:10px; box-shadow:0 8px 30px rgba(0,0,0,0.15);
+}
+.center-node .subtitle {
+  font-size:12px;
+  margin-top:8px;
+  color:#FFFACD;
+  font-weight:normal;
+}
+.node {
+  position:absolute;
+  width:200px; height:90px;
+  border-radius:12px;
+  background:var(--card);
+  border:2px solid var(--primary);
+  display:flex; justify-content:center; align-items:center;
+  text-align:center;
+  padding:10px;
+  box-shadow:var(--shadow);
+  color:var(--text);
+}
+.node h3 {
+  margin:0;
+  font-size:13px;
+  color:var(--secondary);
+}
+.node .keyword {
+  color:var(--highlight);
+  font-weight:bold;
+}
+svg.connectors {
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="center-node">
+    CAN
+    <div class="subtitle">7 factores de Juan Beda para la mejora de empresas locales</div>
+  </div>
+  <svg class="connectors"></svg>
+</div>
+<script>
+const factors = [
+  '1. Gestión de <span class="keyword">recursos humanos</span>',
+  '2. Innovación y desarrollo de <span class="keyword">productos o servicios</span>',
+  '3. <span class="keyword">Marketing y ventas</span>',
+  '4. Gestión <span class="keyword">financiera</span>',
+  '5. Tecnología y <span class="keyword">sistemas de información</span>',
+  '6. Relaciones con los <span class="keyword">stakeholders</span>',
+  '7. Gestión <span class="keyword">logística y procesos internos</span>'
+];
+
+const container = document.querySelector('.container');
+const svg = document.querySelector('svg.connectors');
+const centerX = container.clientWidth / 2;
+const centerY = container.clientHeight / 2;
+const radius = 250;
+
+factors.forEach((factor, i) => {
+  const angle = (i / factors.length) * 2 * Math.PI - Math.PI/2;
+  const x = centerX + radius * Math.cos(angle) - 100;
+  const y = centerY + radius * Math.sin(angle) - 45;
+
+  // crear nodo
+  const node = document.createElement('div');
+  node.className = 'node';
+  node.style.left = `${x}px`;
+  node.style.top = `${y}px`;
+  node.innerHTML = `<h3>${factor}</h3>`;
+  container.appendChild(node);
+
+  // crear línea
+  const line = document.createElementNS('http://www.w3.org/2000/svg','line');
+  line.setAttribute('x1', centerX);
+  line.setAttribute('y1', centerY);
+  line.setAttribute('x2', x + 100);
+  line.setAttribute('y2', y + 45);
+  line.setAttribute('stroke', 'var(--primary)');
+  line.setAttribute('stroke-width', 2);
+  svg.appendChild(line);
+});
+</script>
+</body>
+</html>
