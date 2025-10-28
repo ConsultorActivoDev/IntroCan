@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Consultor Activo de Negocios — Landing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --green: #7BB661; /* principal */
+      --steel: #6B8EAE; /* secundario (gris azulado) */
+      --sun: #F2C94C; /* resalte */
+      --bg: #F9F9F4; /* fondo cálido */
+      --text: #333333;
+      --muted: #767676;
+      --radius: 10px;
+      --container: 1000px;
+      font-family: 'Alef', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+
+    /* Reset simple */
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:var(--bg);color:var(--text)}
+
+    .wrap{max-width:var(--container);margin:40px auto;padding:28px}
+
+    /* Header */
+    header{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--green),#66a94f);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(34,34,34,0.06)}
+    .logo h1{margin:0;font-size:18px;color:white;font-weight:700}
+    .brand h2{margin:0;font-size:18px;color:var(--green);letter-spacing:0.4px}
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
+
+    nav a{margin-left:18px;text-decoration:none;color:var(--steel);font-weight:600}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center;margin-top:28px}
+    .hero-card{background:white;border-radius:14px;padding:26px;box-shadow:0 8px 30px rgba(20,20,20,0.05)}
+    .kicker{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(123,182,97,0.12);color:var(--green);font-weight:700;font-size:13px}
+    h1.hero-title{font-size:32px;margin:16px 0;color:var(--text);line-height:1.06}
+    p.lead{color:#525252;margin:12px 0 20px}
+
+    .cta{display:flex;gap:12px}
+    .btn-primary{background:var(--green);color:white;padding:12px 18px;border:none;border-radius:10px;font-weight:700;cursor:pointer;box-shadow:0 6px 18px rgba(123,182,97,0.18)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(123,182,97,0.22)}
+    .btn-ghost{background:transparent;border:2px solid var(--steel);color:var(--steel);padding:10px 16px;border-radius:10px;font-weight:700;cursor:pointer}
+
+    /* Right panel */
+    .panel{padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(107,142,174,0.06), rgba(255,255,255,0.6));border:1px solid rgba(107,142,174,0.08)}
+    .panel h3{margin:0 0 8px;color:var(--steel);font-family:'Playfair Display', serif}
+    .panel p{margin:0;color:var(--muted);font-size:14px}
+
+    /* Features */
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+    .feature{background:white;padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(20,20,20,0.04);min-height:110px}
+    .feature h4{margin:6px 0;color:var(--steel)}
+    .feature p{margin:0;color:var(--muted);font-size:13px}
+
+    /* Footer */
+    footer{margin-top:30px;padding:20px 0;color:var(--muted);font-size:13px;border-top:1px solid rgba(0,0,0,0.04)}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;padding:0}
+      .features{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo"><h1>CAN</h1></div>
+        <div>
+          <h2>Consultor Activo de Negocios</h2>
+          <p>Acción estratégica para PYMEs</p>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#">Servicios</a>
+        <a href="#">Casos</a>
+        <a href="#contact">Contacto</a>
+      </nav>
+    </header>
+
+    <main class="hero">
+      <section class="hero-card">
+        <span class="kicker">Estrategia & Acción</span>
+        <h1 class="hero-title">Impulsa el crecimiento de tu negocio con decisiones prácticas</h1>
+        <p class="lead">Acompañamiento estratégico para PYMEs: diagnóstico, implementación y seguimiento con resultados medibles.</p>
+
+        <div class="cta">
+          <button class="btn-primary" onclick="alert('Gracias — te contactamos pronto')">Solicitar consultoría</button>
+          <button class="btn-ghost">Ver servicios</button>
+        </div>
+
+        <div class="features" style="margin-top:18px">
+          <div class="feature">
+            <strong>Diagnóstico rápido</strong>
+            <h4>Análisis en 48 horas</h4>
+            <p>Identificamos oportunidades de mejora y palancas de crecimiento.</p>
+          </div>
+          <div class="feature">
+            <strong>Implementación</strong>
+            <h4>Planes accionables</h4>
+            <p>Soluciones prácticas que tu equipo puede aplicar desde el primer mes.</p>
+          </div>
+          <div class="feature">
+            <strong>Resultados</strong>
+            <h4>Medibles y sostenibles</h4>
+            <p>Indicadores claros para evaluar impacto y optimizar recursos.</p>
+          </div>
+        </div>
+      </section>
+
+      <aside class="panel">
+        <h3>Reserva una llamada</h3>
+        <p>20 minutos para entender tu reto y proponerte el siguiente paso.</p>
+        <div style="height:12px"></div>
+        <p style="font-weight:700;color:var(--green);margin:8px 0">Horario: Lun-Vie 9:00 - 17:00</p>
+        <p style="margin-top:12px;font-size:13px">Precio desde: <strong>$1,250 / mes</strong></p>
+        <div style="height:18px"></div>
+        <button class="btn-primary" style="width:100%" onclick="window.location.hash='#contact'">Agendar llamada</button>
+
+        <div style="height:14px"></div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <div style="width:10px;height:10px;border-radius:50%;background:var(--sun)"></div>
+          <small style="color:var(--muted)">Colabora con enfoque práctico</small>
+        </div>
+      </aside>
+    </main>
+
+    <footer id="contact">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+        <div>
+          <strong>Consultor Activo de Negocios (CAN)</strong>
+          <div style="color:var(--muted)">Contacto: hola@can.consult</div>
+        </div>
+        <div style="text-align:right;color:var(--muted)">© 2025 CAN — Todos los derechos reservados</div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // pequeños toques interactivos
+    document.querySelectorAll('.btn-primary').forEach(b=>{
+      b.addEventListener('mouseover',()=>b.style.background='var(--sun)')
+      b.addEventListener('mouseout',()=>b.style.background='var(--green)')
+    })
+  </script>
+</body>
+</html>
